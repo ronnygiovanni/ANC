@@ -1,0 +1,10 @@
+^E:\IT\ANC\BUILD\CMAKEFILES\03DC8C009524F0660A3C8E26C93210AF\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/IT/ANC -BE:/IT/ANC/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/IT/ANC/build/adi_anc_dsp.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
