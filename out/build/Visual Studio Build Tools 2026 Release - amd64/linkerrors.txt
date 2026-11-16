@@ -1,0 +1,11 @@
+================================================================================
+Linker Errors
+Generated: 2026-11-16T15:19:28.331Z
+Total Errors: 2
+================================================================================
+
+[LNK2019] (MSVC)
+unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) [E:\IT\ANC\out\build\Visual Studio Build Tools 2026 Release - amd64\anc_test.vcxproj]
+
+[LNK1120] (MSVC)
+1 unresolved externals [E:\IT\ANC\out\build\Visual Studio Build Tools 2026 Release - amd64\anc_test.vcxproj]

@@ -5,3 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(anc_test main.cpp)
+
+# Spunem compilatorului să caute headere și în folderul "include"
+target_include_directories(anc_test PRIVATE include)

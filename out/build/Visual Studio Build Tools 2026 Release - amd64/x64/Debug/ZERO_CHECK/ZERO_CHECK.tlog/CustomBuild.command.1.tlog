@@ -1,0 +1,10 @@
+^E:\IT\ANC\OUT\BUILD\VISUAL STUDIO BUILD TOOLS 2026 RELEASE - AMD64\CMAKEFILES\6EBCE2D629453AD03102EF366EEEBDB2\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/IT/ANC "-BE:/IT/ANC/out/build/Visual Studio Build Tools 2026 Release - amd64" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "E:/IT/ANC/out/build/Visual Studio Build Tools 2026 Release - amd64/adi_anc_dsp.slnx"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
