@@ -47,24 +47,28 @@ public:
     }
 
     // Scrie un std::vector de float-uri înapoi într-un fișier .wav pe hard disk
+   // Scrie un std::vector de float-uri înapoi într-un fișier .wav pe hard disk
     static void write(const std::string& filename, const AudioData& data) {
         drwav_data_format format;
         format.container = drwav_container_riff;     // .wav normal
-        format.format = DR_WAVE_FORMAT_IEEE_FLOAT;   // Salvăm direct ca float (fără conversii înapoi)
+        format.format = DR_WAVE_FORMAT_IEEE_FLOAT;   // Salvăm direct ca float
         format.channels = data.channels;
         format.sampleRate = data.sample_rate;
         format.bitsPerSample = 32;                   // 32-bit float
 
-        drwav* p_wav = drwav_open_file_write(filename.c_str(), &format, nullptr);
-        if (p_wav == nullptr) {
+        // Aici am schimbat drwav_open_file_write cu drwav_init_file_write
+        drwav wav;
+        if (!drwav_init_file_write(&wav, filename.c_str(), &format, nullptr)) {
             throw std::runtime_error("Eroare la deschiderea fisierului WAV pentru scriere: " + filename);
         }
 
         drwav_uint64 frames_to_write = data.samples.size() / data.channels;
-        drwav_write_pcm_frames(p_wav, frames_to_write, data.samples.data());
+        drwav_write_pcm_frames(&wav, frames_to_write, data.samples.data());
 
-        drwav_close(p_wav);
+        // Aici am schimbat drwav_close cu drwav_uninit
+        drwav_uninit(&wav);
     }
+    
 };
 
 } // namespace adi::dsp
